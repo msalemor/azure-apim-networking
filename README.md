@@ -52,6 +52,52 @@ graph LR;
     class C,B someclass1;
 ```
 
+Azure Services:
+- API Management in External Mode
+- Depending on how API are exposed:
+  - Azure App Services
+  - Azure VMs
+  - Etc.
+
+Security:
+- No WAF (Recommended)
+- No DDOS (Recommended)
+- Communication from APIM to App Services and Functions could leverage Service Tags
+
 ### Internal with internal and external services
 
-### Internal with AKS internal
+```mermaid
+graph LR;
+    A((Internet))--DDOS-->X((Public<br/>IP));
+    X-->Z;
+    Z[AppG<br/>WAF];
+    Z--Gateway<br/>Portal<br/>Service Tags-->B(APIM);
+    B-->M[Private<br/>Endpoint];
+    M-->C[App Services<br/>Azure Functions]
+    B-->D[ILB];
+    D-->F[VM];
+    B--Internal<br/>Ingress-->E[AKS/ACA];
+    B-->G[Vendor API]
+    style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
+    classDef unsafe fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
+    class X unsafe;
+    classDef safe fill:red,color:black;
+    class C,Z,B,D,F,E,M safe;
+```
+
+Azure Services:
+- Public IP
+- VNET
+- AppGW
+- API Management in External Mode
+- Depending on how API are exposed:
+  - Azure App Services
+  - Azure VMs
+  - Etc.
+  - Private Endpoint
+
+Security:
+- DDOS on Public IP
+- WAF on AppGW and can do SSL offloading or end-to-end encryption
+- APIM deployed to VNET subnet obtains private IP
+- Communication to APIs can be over private IPs to internal services or public endpoints
