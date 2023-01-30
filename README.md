@@ -1,5 +1,7 @@
 # Azure API Management Networking
 
+## API Management configuration in order of improved security
+
 ### External API Management and External APIs
 
 ```mermaid
