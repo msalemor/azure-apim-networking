@@ -80,12 +80,13 @@ graph LR;
     B-->D[ILB];
     D-->F[VMSS];
     B--Internal<br/>Ingress-->E[AKS/ACA];
-    B-->G[Vendor API]
+    B-->G[ASE];
+    B-->H[Vendor API]
     style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
     classDef unsafe fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
     class X unsafe;
     classDef safe fill:red,color:black;
-    class C,Z,B,D,F,E,M safe;
+    class C,Z,B,D,F,E,M,G safe;
 ```
 
 Azure Services:
