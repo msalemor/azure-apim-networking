@@ -2,9 +2,9 @@
 
 ## API Modes
 
-- Default
-- External
-- Internal
+- Default: Not deployed to VNET, exposes public gateway and portal, and can acccess external APIs only
+- External: Deployed to VNET, exposes public gateway and portal, and can access internal and external APIs
+- Internal: Deployed to VNET, expoese private gateway and portal, and can access internal and external APIs
 
 ## API Management configuration in order of improved security
 
