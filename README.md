@@ -39,7 +39,7 @@ graph LR;
     A((Internet))--DDOS-->X((Public<br/>IP));
     X-->Z;
     Z[AppG<br/>WAF];
-    Z--Gateway<br/>Portal<br/>Service Tags-->B(APIM);
+    Z--Gateway<br/>Portal-->B(APIM);
     B--Service Tags-->C[App Services<br/>Azure Functions]
     B-->D[AppGw];
     D-->F[VM];
@@ -71,7 +71,7 @@ graph LR;
     A((Internet))--DDOS-->X((Public<br/>IP));
     X-->Z;
     Z[AppG<br/>WAF];
-    Z--Gateway<br/>Portal<br/>Service Tags-->B(APIM);
+    Z--Gateway<br/>Portal-->B(APIM);
     B-->M[Private<br/>Endpoint];
     M-->C[App Services<br/>Azure Functions]
     B-->D[ILB];
