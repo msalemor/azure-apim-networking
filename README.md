@@ -37,7 +37,7 @@ Security:
 ```mermaid
 graph LR;
     A((Internet))--Gateway<br/>Portal-->B(APIM)
-    B--Service Tags-->C[App Services<br/>Azure Functions]
+    B--Subnet<br/>Restriction-->C[App Services<br/>Azure Functions]
     B-->D[ILB];
     D-->F[VMSS];
     B--Internal<br/>Ingress-->E[AKS/ACA];
