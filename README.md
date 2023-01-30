@@ -1,6 +1,6 @@
 # Azure API Management Networking
 
-## API Modes
+## API Networking Modes
 
 - Default: Not deployed to VNET, exposes public gateway and portal, and can acccess external APIs only
 - External: Deployed to VNET, exposes public gateway and portal, and can access internal and external APIs
