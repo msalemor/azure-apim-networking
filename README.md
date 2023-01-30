@@ -40,7 +40,7 @@ graph LR;
     B--Service Tags-->C[App Services<br/>Azure Functions]
     B-->D[ILB];
     D-->F[VMSS];
-    B--Ingress-->E[AKS/ACA];
+    B--Internal<br/>Ingress-->E[AKS/ACA];
     B-->G[Vendor API]
     style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
     classDef unsafe fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
