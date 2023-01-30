@@ -2,7 +2,7 @@
 
 ## API Management configuration in order of improved security
 
-### External API Management and External APIs
+### Default API Management Deployment and External APIs
 
 ```mermaid
 graph LR;
@@ -32,7 +32,9 @@ Security:
 - Communication from APIM to App Services and Functions could leverage Service Tags
 
 
-### Application Gateway, External API Management and External APIs
+### External API Management Deployment and External and Internal APIs
+
+### Application Gateway, Internal API Management and External APIs
 
 ```mermaid
 graph LR;
@@ -64,7 +66,7 @@ Security:
 - No DDOS (Recommended)
 - Communication from APIM to App Services and Functions could leverage Service Tags
 
-### Internal with internal and external services
+### Application Gateway, Internal API Management, Internal and External APIs
 
 ```mermaid
 graph LR;
