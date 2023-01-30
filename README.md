@@ -30,6 +30,7 @@ Security:
 - No WAF (Recommended)
 - No DDOS (Recommended)
 - Communication from APIM to App Services and Functions could leverage Service Tags
+- Traffic from API to APIs flows over the Internet
 
 
 ### External API Management Deployment and External and Internal APIs
@@ -64,6 +65,7 @@ Security:
 - No DDOS
 - APIM deployed to VNET subnet obtains private IP
 - Communication to APIs can be over private IPs to internal services or public endpoints
+- Traffic from internet to Azure backed APIs flows all internally over the Azure backbone
 
 ### Application Gateway, Internal API Management, Internal and External APIs
 
@@ -101,7 +103,9 @@ Security:
 - DDOS on Public IP
 - WAF on AppGW and can do SSL offloading or end-to-end encryption
 - APIM deployed to VNET subnet obtains private IP
+- Internal or external access to the APIs over the AppGw
 - Communication to APIs can be over private IPs to internal services or public endpoints
+- Traffic from internet to Azure backed APIs flows all internally over the Azure backbone
 
 ### Reference
 
