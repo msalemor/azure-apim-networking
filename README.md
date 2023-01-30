@@ -1,5 +1,11 @@
 # Azure API Management Networking
 
+## API Modes
+
+- Default
+- External
+- Internal
+
 ## API Management configuration in order of improved security
 
 ### Default API Management Deployment and External APIs
