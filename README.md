@@ -16,6 +16,22 @@ graph LR;
     class C someclass1;
 ```
 
+Azure Services:
+- API Management in External Mode
+- Depending on how API are exposed:
+  - Azure App Services
+  - Azure VMs
+  - Etc.
+
+Security:
+- No WAF (Recommended)
+- No DDOS (Recommended)
+- Communication from APIM to App Services and Functions could leverage Service Tags
+
+
+Security:
+
+
 ### Application Gateway, External API Management and External APIs
 
 ```mermaid
