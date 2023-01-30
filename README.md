@@ -12,7 +12,7 @@ graph LR;
     B-->G[Vendor API]
     style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
     classDef someclass fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
-    class B,D,E,F,G someclass;
+    class B,D,E,F someclass;
     classDef someclass1 fill:#f96,color:black;
     class C someclass1;
 ```
@@ -45,7 +45,7 @@ graph LR;
     B-->G[Vendor API]
     style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
     classDef someclass fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
-    class Z,D,E,F,X,G someclass;
+    class Z,D,E,F,X someclass;
     classDef someclass1 fill:#f96,color:black;
     class C,B someclass1;
 ```
