@@ -33,7 +33,9 @@ Security:
 
 ```mermaid
 graph LR;
-    A((Internet))-->Z[AppG<br/>WAF];
+    A((Internet))--DDOS-->X((Public<br/>IP));
+    X-->Z;
+    Z[AppG<br/>WAF];
     Z--Gateway<br/>Portal<br/>Service Tags-->B(APIM);
     B--Service Tags-->C[App Services<br/>Azure Functions]
     B-->D[AppGw];
@@ -41,7 +43,7 @@ graph LR;
     B-->E[Vendor API];
     style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
     classDef someclass fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
-    class Z,D,E,F someclass;
+    class Z,D,E,F,X someclass;
     classDef someclass1 fill:#f96,color:black;
     class C,B someclass1;
 ```
