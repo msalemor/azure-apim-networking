@@ -55,9 +55,9 @@ Azure Services:
 - API Management in External Mode
 - Depending on how API are exposed:
   - Azure App Services
-  - Azure VMs
+  - Azure VMs  
+  - Private Endpoints
   - Etc.
-  - Private Endpoint
 
 Security:
 - No WAF
@@ -93,9 +93,9 @@ Azure Services:
 - API Management in External Mode
 - Depending on how API are exposed:
   - Azure App Services
-  - Azure VMs
+  - Azure VMs  
+  - Private Endpoints
   - Etc.
-  - Private Endpoint
 
 Security:
 - DDOS on Public IP
