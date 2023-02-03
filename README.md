@@ -1,6 +1,7 @@
 # Azure API Management Networking
 
-## API Networking Modes
+
+## API Management Networking Modes
 
 - Default: Not deployed to VNET, exposes public gateway and portal, and can acccess external APIs only
 - External: Deployed to VNET, exposes public gateway and portal, and can access internal and external APIs
@@ -12,17 +13,20 @@
 
 ```mermaid
 graph LR;
-    A((Internet))--Gateway<br/>Portal-->B(APIM)
-    B--Service Tags-->C[App Services<br/>Azure Functions]
-    B-->D[AppGW];
-    D-->F[VM];
-    B--Ingress-->E[AKS/ACA];
-    B-->G[Vendor API]
-    style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
-    classDef someclass fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
-    class B,D,E,F someclass;
-    classDef someclass1 fill:#f96,color:black;
-    class C someclass1;
+  A((Internet))--Gateway-->B(APIM);
+  A((Internet))--Portal-->B(APIM);
+  B--Service Tags-->C[App Services<br/>or<br/>Azure Functions]
+  B-->D[AppGW];
+  D-->F[VM];
+  B--Ingress-->E[AKS/ACA];
+  B-->G[Vendor API]
+  classDef internet fill:#007FFF,color:white;
+  classDef unsafe fill:#ff3333,color:white;
+  classDef semisafe fill:darkorange,color:black;
+  classDef safe fill:darkgreen,color:white;
+  class A internet;
+  class C,D,F,E safe;  
+  class B,G semisafe;
 ```
 
 Azure Services:
@@ -43,17 +47,26 @@ Security:
 
 ```mermaid
 graph LR;
-    A((Internet))--Gateway<br/>Portal-->B(APIM)
-    B--Subnet<br/>Restriction-->C[App Services<br/>Azure Functions]
-    B-->D[ILB];
-    D-->F[VMSS];
-    B--Internal<br/>Ingress-->E[AKS/ACA];
-    B-->G[Vendor API]
-    style A fill:#007FFF,stroke:#333,stroke-width:1px,color:#fff;    
-    classDef unsafe fill:#4DFF4D,stroke:#333,stroke-width:1px,color:black;
-    class X unsafe;
-    classDef safe fill:red,color:black;
-    class C,Z,B,D,F,E,M safe;
+  A((Internet))--Gateway-->B;
+  A((Internet))--Portal-->B;
+  subgraph "APIM Subnet"
+    B(APIM)
+  end;
+  B--Service Tags-->C(App Services<br/>Azure Functions);
+  B-->D[ILB];
+  D-->F[VMSS];
+  B--Internal<br/>Ingress-->E[AKS/ACA];
+  B-->G[Vendor API];
+  C-->H[Azure SQL];
+  F-->H;
+  E-->H;
+  classDef internet fill:#007FFF,color:white;
+  classDef unsafe fill:#ff3333,color:white;
+  classDef semisafe fill:darkorange,color:black;
+  classDef safe fill:darkgreen,color:white;
+  class A internet;
+  class B,C,D,F,E safe;
+  class G semisafe;
 ```
 
 Azure Services:
