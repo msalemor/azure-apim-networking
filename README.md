@@ -10,22 +10,37 @@
 
 ## API Management configuration in order of improved security
 
-### Interal
+### API Management Components
 
 ```mermaid
 graph LR;
-  A((Inbound<br/>Traffic))--Gateway-->B(APIM);
-  A--Portal-->B;
-  A--Management-->B;
-  B-->C(Outbound<br/>APIs)
+  A(App<br/>Developers)-->B;
+  subgraph "APIM"
+    B(Developer<br/>Portal);
+    D(API<br/>Management<br/>Plane);
+    E(Gateway);
+  end;
+  B-->D;
+  C(App<br/>Devices)-->E;
+  E-->D;
+  E-->G(APIs);
+  D-->H(API Providers)
+  classDef internet fill:#007FFF,color:white;
+  classDef unsafe fill:#ff3333,color:white;
+  classDef semisafe fill:darkorange,color:black;
+  classDef safe fill:purple,color:white;
+  classDef text fill:black,color:white;
+  class A,C internet;
+  class B,D,E safe;
+  class G semisafe;
+  class H text;
 ```
 
 ### Default API Management Deployment and External APIs
 
 ```mermaid
 graph LR;
-  A((Internet))--Gateway-->B(APIM);
-  A((Internet))--Portal-->B(APIM);
+  A((Internet))-->B(APIM);
   B--Service Tags-->C[App Services<br/>or<br/>Azure Functions]
   B-->D[AppGW];
   D-->F[VM];
@@ -58,8 +73,7 @@ Security:
 
 ```mermaid
 graph LR;
-  A((Internet))--Gateway-->B;
-  A((Internet))--Portal-->B;
+  A((Internet))-->B;
   subgraph "APIM Subnet"
     B(APIM)
   end;
