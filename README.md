@@ -10,6 +10,16 @@
 
 ## API Management configuration in order of improved security
 
+### Interal
+
+```mermaid
+graph LR;
+  A((Inbound<br/>Traffic))--Gateway-->B(APIM);
+  A--Portal-->B;
+  A--Management-->B;
+  B-->C(Outbound<br/>APIs)
+```
+
 ### Default API Management Deployment and External APIs
 
 ```mermaid
