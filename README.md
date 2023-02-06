@@ -1,4 +1,4 @@
-# Azure API Management Networking
+# Azure API Management Networking and Security
 
 
 ## API Management Networking Modes
