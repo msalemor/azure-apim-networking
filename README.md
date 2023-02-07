@@ -14,7 +14,7 @@
 
 ```mermaid
 graph LR;
-  A(App<br/>Developers)-->B;
+  A(App<br/>Developers)<-->B;
   subgraph "APIM"
     B(Developer<br/>Portal);
     D(API<br/>Management<br/>Plane);
@@ -24,7 +24,7 @@ graph LR;
   C(App<br/>Devices)-->E;
   E-->D;
   E-->G(APIs);
-  D-->H(API Providers)
+  H(API Providers)-->D;
   classDef internet fill:#007FFF,color:white;
   classDef unsafe fill:#ff3333,color:white;
   classDef semisafe fill:darkorange,color:black;
