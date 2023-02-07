@@ -19,11 +19,10 @@ graph LR;
   APP(API Providers)-->MG;
   GT<-->APIS(APIs);
   subgraph SG1["APIM"]
-    direction BT;
-    GT(Gateway);
     MG(Management);
     MG-->GT;
     PT(Portal)<-->MG;
+    GT(Gateway);
   end;
   classDef internet fill:#007FFF,color:white;
   classDef unsafe fill:#ff3333,color:white;
