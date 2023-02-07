@@ -14,26 +14,26 @@
 
 ```mermaid
 graph LR;
-  A(App<br/>Developers)<-->B;
-  subgraph "APIM"
-    B(Developer<br/>Portal);
-    D(API<br/>Management<br/>Plane);
-    E(Gateway);
+  APPS(Apps<br/>Devices)<-->GT;
+  DEVS(App<br/>Developers)<-->PT;
+  APP(API Providers)-->MG;
+  GT<-->APIS(APIs);
+  subgraph SG1["APIM"]
+    direction BT;
+    GT(Gateway);
+    MG(Management);
+    MG-->GT;
+    PT(Portal)<-->MG;
   end;
-  D-->B;
-  C(App<br/>Devices)-->E;
-  E-->D;
-  E-->G(APIs);
-  H(API Providers)-->D;
   classDef internet fill:#007FFF,color:white;
   classDef unsafe fill:#ff3333,color:white;
   classDef semisafe fill:darkorange,color:black;
   classDef safe fill:purple,color:white;
   classDef text fill:black,color:white;
-  class A,C internet;
-  class B,D,E safe;
-  class G semisafe;
-  class H text;
+  class APPS,DEVS internet;
+  class GT,PT,MG safe;
+  class APIS semisafe;
+  class APP text;
 ```
 
 ### Default API Management Deployment and External APIs
