@@ -20,7 +20,7 @@ graph LR;
     D(API<br/>Management<br/>Plane);
     E(Gateway);
   end;
-  B-->D;
+  D-->B;
   C(App<br/>Devices)-->E;
   E-->D;
   E-->G(APIs);
